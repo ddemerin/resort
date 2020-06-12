@@ -4,28 +4,28 @@ import Title from "./Title";
 
 export default class Services extends Component {
   state = {
-    service: [
+    services: [
       {
         icon: <FaCocktail />,
-        title: "Free cocktails",
+        title: "free cocktails",
         info:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, distinctio.",
       },
       {
         icon: <FaHiking />,
-        title: "Endless Hiking",
+        title: "endless hiking",
         info:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, distinctio.",
       },
       {
         icon: <FaShuttleVan />,
-        title: "Free shuttle",
+        title: "free shuttle",
         info:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, distinctio.",
       },
       {
         icon: <FaBeer />,
-        title: "Strongest Beer",
+        title: "strongest beer",
         info:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, distinctio.",
       },
@@ -33,9 +33,20 @@ export default class Services extends Component {
   };
   render() {
     return (
-      <div>
+      <section className="services">
         <Title title="Services" />
-      </div>
+        <div className="services-center">
+          {this.state.services.map((item, index) => {
+            return (
+              <article key={index} className="service">
+                <span>{item.icon}</span>
+                <h6>{item.title}</h6>
+                <p>{item.info}</p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
     );
   }
 }
